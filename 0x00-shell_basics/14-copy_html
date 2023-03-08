@@ -1,0 +1,2 @@
+#!/bin/bash
+for f in $(find . -maxdepth 1 -name "*.html" -type f); do d="../$(basename "$f")"; [ ! -f "$d" ] || [ "$f" -nt "$d" ] && cp -p "$f" "$d" && echo "Copied $f to $d"; done
