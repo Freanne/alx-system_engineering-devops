@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#get the absolute path
+cd ..
+path=$(pwd)/$(basename "$PWD")
+
+#print absolute path
+echo $path
