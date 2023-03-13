@@ -1,2 +1,3 @@
 #!/bin/bash
-find . ../ /boot  -maxdepth 1 \( -name ".*" -o -type f \) -printf '%f\n'
+ls -Ap1 . ../ /boot | grep -v /
+
