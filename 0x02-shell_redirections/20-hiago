@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Votre chaîne de caractères" | grep -v '[cC]'
+tr -d 'Cc'
