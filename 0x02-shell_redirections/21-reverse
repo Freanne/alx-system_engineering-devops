@@ -1,3 +1,3 @@
 #!/bin/bash
-rev
-
+read str
+echo "$str" | rev
