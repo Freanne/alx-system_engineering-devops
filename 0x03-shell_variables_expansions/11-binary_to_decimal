@@ -1,2 +1,2 @@
 #!/bin/bash
-binary_str=$BINARY; echo "$((2#$binary_str))"
+eval "echo \$((2#$BINARY))"
