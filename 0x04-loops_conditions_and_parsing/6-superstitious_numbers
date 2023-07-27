@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # This script displays numbers from 1 to 20 with specific messages for certain iterations
 
 # Initialize a counter variable
