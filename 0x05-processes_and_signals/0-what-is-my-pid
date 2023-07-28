@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#scrip display its own PID
+
+
+echo "$$"
