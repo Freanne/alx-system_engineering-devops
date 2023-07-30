@@ -1,11 +1,4 @@
 #!/usr/bin/env bash
 #script that stopped processus
 
-./4-to_infinity_and_beyond &
-
-pid=$!
-
-sleep 1
-echo "Terminated"
-
-kill "$pid"
+kill "$(ps -x | pgrep -f beyond)"
