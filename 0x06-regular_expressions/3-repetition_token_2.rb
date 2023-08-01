@@ -2,7 +2,7 @@
 #above cases
 
 def find_token(sentences)
-  mot = sentences.match(/hb+tn/)
+  mot = sentences.match(/hbt+n/)
   if mot
     puts mot[0]
   else
