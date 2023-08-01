@@ -7,11 +7,11 @@ if ARGV.empty?
 end
 
 def find_school_match(input_string)
-  match = input_string.match(/School/)
-  if match
-    puts match[0]
-  else
+  matches = input_string.scan(/School/)
+  if matches.empty?
     puts ""
+  else
+    puts "#{matches.join('')}"
   end
 end
 
