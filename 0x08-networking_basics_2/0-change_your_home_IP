@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Check if running inside Docker
+if [ -f "/.dockerenv" ]; then
+  echo "Running inside Docker"
+else
+  echo "This script is intended to run inside a Docker container."
+  exit 1
+fi
+
+# Check if running as root
+if [ "$EUID" -ne 0 ]; then
+  echo "Please run this script as root"
+  exit 1
+fi
+
+# Store the original /etc/hosts file path
+original_hosts="/etc/hosts.original"
+
+# Backup the original /etc/hosts if not already done
+if [ ! -f "$original_hosts" ]; then
+  cp /etc/hosts "$original_hosts"
+fi
+
+# Update localhost and facebook.com entries in /etc/hosts
+sed -i 's/127.0.0.1 localhost/127.0.0.2 localhost/g' /etc/hosts
+sed -i 's/157.240.11.35 facebook.com/8.8.8.8 facebook.com/g' /etc/hosts
+
+echo "Hosts file updated. You can now test the changes using 'ping localhost' and 'ping facebook.com'"

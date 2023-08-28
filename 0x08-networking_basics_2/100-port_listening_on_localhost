@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Check if running as root
+if [ "$EUID" -ne 0 ]; then
+  echo "Please run this script as root"
+  exit 1
+fi
+
+# Listen on port 98 using netcat (nc)
+nc -l -p 98
+
