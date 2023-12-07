@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Script: 0-nginx_likes_port_80
+# Description: Configures Nginx to listen on port 80 for all active IPv4 IPs.
+
+# Update package list and install Nginx
+apt-get update
+apt-get install -y nginx
+
+# Backup default Nginx configuration
+cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
+
+# Configure Nginx to listen on port 80 for all active IPv4 IPs
+sed -i 's/\(listen \[::\]:80;\)/# \1/' /etc/nginx/nginx.conf
+sed -i 's/# \(listen \[::\]:80;\)/\1/' /etc/nginx/nginx.conf
+
+# Restart Nginx to apply changes
+service nginx restart
+
+# Output a message indicating successful configuration
+echo "Nginx has been configured to listen on port 80 for all active IPv4 IPs."
+
+# Test the configuration with curl
+curl 0:80
